@@ -1,0 +1,29 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+actor Comprador
+actor "Agente de oficina" as Agente
+actor Colaborador
+
+package "Canales de venta" {
+  [Portal Online\n(canal principal)] as Portal
+  [Oficina de atencion al cliente] as Oficina
+  [Portal / POS de colaborador] as Colab
+}
+
+Comprador --> Portal
+Agente --> Oficina
+Colaborador --> Colab
+
+[FunEvents API\n(REST)] as Api
+
+Portal --> Api
+Oficina --> Api
+Colab --> Api : API key por colaborador
+
+database "Base de datos\n(SQL Server)" as DB
+
+Api --> DB : reglas de negocio\ny control de cupo
+
+@enduml

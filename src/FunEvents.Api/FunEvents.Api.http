@@ -1,6 +1,48 @@
 @FunEvents.Api_HostAddress = http://localhost:5112
 
-GET {{FunEvents.Api_HostAddress}}/weatherforecast/
+GET {{FunEvents.Api_HostAddress}}/api/health
+Accept: application/json
+
+###
+
+GET {{FunEvents.Api_HostAddress}}/api/venues
+Accept: application/json
+
+###
+
+GET {{FunEvents.Api_HostAddress}}/api/events
+Accept: application/json
+
+###
+
+GET {{FunEvents.Api_HostAddress}}/api/users
+Accept: application/json
+
+###
+
+POST {{FunEvents.Api_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "firstName": "Ana",
+  "lastName": "Gomez",
+  "email": "ana.gomez@example.com"
+}
+
+###
+
+POST {{FunEvents.Api_HostAddress}}/api/reservations
+Content-Type: application/json
+
+{
+  "eventId": "00000000-0000-0000-0000-000000000000",
+  "userId": "00000000-0000-0000-0000-000000000000",
+  "quantity": 1
+}
+
+###
+
+GET {{FunEvents.Api_HostAddress}}/api/reservations/00000000-0000-0000-0000-000000000000
 Accept: application/json
 
 ###
